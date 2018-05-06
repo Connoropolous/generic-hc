@@ -1,0 +1,9 @@
+{
+	"title": "Private Generic Schema",
+	"type": "object",
+	"properties": {
+		"content": {
+			"type": "object"
+		}
+	}
+}

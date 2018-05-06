@@ -1,0 +1,98 @@
+{
+    "Tests": [
+        {
+            "Convey": "allow any json for generic",
+            "Zome": "generic",
+            "FnName": "hCommit",
+            "Input": {
+                "test": "test"
+            },
+            "Output": "%h%"
+        },
+        {
+            "Convey": "allow any json for generic",
+            "Zome": "generic",
+            "FnName": "hCommit",
+            "Input": {
+                "one": "two"
+            },
+            "Output": "%h%"
+        },
+        {
+            "Convey": "allow any json for private generic",
+            "Zome": "generic",
+            "FnName": "hPrivateCommit",
+            "Input": {
+                "one": "two"
+            },
+            "Output": "%h%"
+        },
+        {
+            "Convey": "update generic",
+            "Zome": "generic",
+            "FnName": "hUpdate",
+            "Input": {
+                "content": {
+                    "two": "three"
+                },
+                "hash": "%h%"
+            },
+            "Output": "%h%"
+        },
+        {
+            "Convey": "update private generic",
+            "Zome": "generic",
+            "FnName": "hPrivateUpdate",
+            "Input": {
+                "content": {
+                    "two": "three"
+                },
+                "hash": {"%result%": 2}
+            },
+            "Output": "%h%"
+        },
+        {
+            "Convey": "remove entries",
+            "Zome": "generic",
+            "FnName": "hRemove",
+            "Input": "%h%",
+            "Output": "%h%"
+        },
+        {
+            "Convey": "get entries",
+            "Zome": "generic",
+            "FnName": "hGet",
+            "Input": {
+                "hash": {"%result%": 0}
+            },
+            "Output": {
+                "content": {
+                    "test": "test"
+                }
+            }
+        },
+        {
+            "Convey": "commit links",
+            "Zome": "generic",
+            "FnName": "hCommitLinks",
+            "Input": [
+                {
+                    "Base": {"%result%": 0},
+                    "Tag": "test",
+                    "Link": "%agent%"
+                }
+            ],
+            "Output": "%h%"
+        },
+        {
+            "Convey": "get links",
+            "Zome": "generic",
+            "FnName": "hGetLinks",
+            "Input": {
+                "base": {"%result%": 0},
+                "tag": "test"
+            },
+            "Output": [{"Hash": "%agent%"}]
+        }
+    ]
+}

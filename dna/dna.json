@@ -1,0 +1,116 @@
+{
+    "Version": 1,
+    "UUID": "8cf042e6-50c4-11e8-a8a6-3c0754045586",
+    "Name": "generic",
+    "Properties": {
+        "description": "provides an application template",
+        "language": "en"
+    },
+    "PropertiesSchemaFile": "properties_schema.json",
+    "RequiresVersion": 23,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "NeighborhoodSize": 0
+    },
+    "Zomes": [
+        {
+            "Name": "generic",
+            "Description": "expose basic functions",
+            "CodeFile": "generic.js",
+            "RibosomeType": "js",
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "generic",
+                    "DataFormat": "json",
+                    "SchemaFile": "generic.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "privateGeneric",
+                    "DataFormat": "json",
+                    "SchemaFile": "privateGeneric.json",
+                    "Sharing": "private"
+                },
+                {
+                    "Name": "genericLink",
+                    "DataFormat": "links"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "hCommitLinks",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hCommit",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hPrivateCommit",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hPrivateUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hRemove",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hGet",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hGetLinks",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hQuery",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hMakeHash",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                }
+            ]
+        },
+        {
+            "Name": "peerVis",
+            "Desription": "show whos online",
+            "CodeFile": "peerVis.js",
+            "RibosomeType": "js",
+            "Config": {
+                "ErrorHandling": "throwErrors"
+            },
+            "Entries": [
+                {
+                "Name": "peerLink",
+                "DataFormat": "links"
+                }
+            ],
+            "Functions": [
+                {
+                "Name": "getPeers",
+                "CallingType": "json",
+                "Exposure": "public"
+                }
+            ]
+        }
+    ]
+}
